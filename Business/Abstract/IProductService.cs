@@ -12,13 +12,12 @@ namespace Business.Abstract
     // iş katmanında kullanacağımız servis katmanı
     public interface IProductService
     {
-        List<Product> GetAll();
-        List<Product> GetAllByCategoryId(int id);// Kategori id sine göre ürünleri getir
-
-        List<Product> GetAllByUnitPrice(decimal min, decimal max); // min ve max fiyat arasındaki data
-
-        List<ProductDetailDto> GetProductDetails();
+        IDataResult<List<Product>> GetAll(); // Aynı zamanda işlem sonucu Data yı döndürüyoruz
+        IDataResult<List<Product>> GetAllByCategoryId(int id);// Kategori id sine göre ürünleri getir
+        IDataResult<List<Product>> GetAllByUnitPrice(decimal min, decimal max); // min ve max fiyat arasındaki data
+        IDataResult<List<ProductDetailDto>> GetProductDetails();
+        IDataResult<Product> GetById(int productId);
         IResult Add(Product product);
-        Product GetById(int productId);
+        
     }
 }
