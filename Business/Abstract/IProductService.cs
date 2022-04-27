@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -17,5 +18,7 @@ namespace Business.Abstract
         List<Product> GetAllByUnitPrice(decimal min, decimal max); // min ve max fiyat arasındaki data
 
         List<ProductDetailDto> GetProductDetails();
+        IResult Add(Product product);
+        Product GetById(int productId);
     }
 }
